@@ -1,0 +1,24 @@
+<p>test1 works!</p>
+<div>
+  <!-- ngModel -->
+  <select [(ngModel)]="selectedItem" (change)="onChange()">
+    <option [value]=""></option>
+    <option *ngFor="let item of items" [ngValue]="item">{{item.name}}</option>
+  </select>
+
+  <select [(ngModel)]="selectedItem2" [disabled]="isDisabledItem">
+    <option [value]=""></option>
+    <option *ngFor="let item of items" [ngValue]="item">{{item.name}}</option>
+  </select>
+</div>
+<!-- 
+<div>
+  selectedItem: {{selectedItem?.id + '/' + selectedItem?.name}}
+</div>
+<div>
+  selectedItem2: {{selectedItem2?.id + '/' + selectedItem2?.name}}
+</div> 
+-->
+<!-- 別コンポーネント化 -->
+<app-test2 itemName="item1" [item]="selectedItem"></app-test2>
+<app-test2 itemName="item2" [item]="selectedItem2"></app-test2>
